@@ -1,4 +1,4 @@
-name: Rust
+name: Build
 
 on:
   push:
@@ -10,8 +10,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
-
+  linux:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,5 +19,7 @@ jobs:
       run: rustup toolchain install nightly
     - name: Add PowerPC toolchain
       run: rustup target add --toolchain nightly powerpc-unknown-linux-gnu
+    - name: NPM Install
+      run: npm install
     - name: Build Linux App
       run: npm run electron:linux
