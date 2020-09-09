@@ -15,6 +15,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: true
+    
     - name: Enable Nightly Rust Toolchain
       run: rustup toolchain install nightly
     - name: Add PowerPC toolchain
